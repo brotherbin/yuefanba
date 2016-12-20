@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+html{
+    overflow-y: scroll;
+}
+body{
+    padding-top: 71px;
+    font-family: "Microsoft YaHei";
+}
+.container{
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+.logo-img{
+    width: 70px;
+    height: 40px;
+    margin-top: -10px;
+}
+.shop-table{
+    margin-top: 20px;
+}

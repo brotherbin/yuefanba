@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/shopManage.css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/shopFoodManage.js"></script>
+<script type="text/javascript" src="../js/shopCommon.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img class="logo-img"
+					src="../img/logo.png"></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="shopInfoManage.html">餐厅信息</a></li>
+				<li><a href="shopOrderManage.html">订单管理</a></li>
+				<li class="active"><a href="shopFoodManage.html">菜品管理</a></li>
+				<li>&nbsp;</li>
+				<li><a href="javascript:;" onclick="logout()">退出</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				餐厅菜品信息
+				<button type="button" class="btn btn-primary btn-xs pull-right"
+					onclick="newFoodAddView(this)">新增菜品</button>
+			</div>
+			<div class="panel-body">
+				<div id="foodList" class="myhide"></div>
+				<script id="foodTmpl" type="text/x-jquery-tmpl">
+      			<div class="thumbnail food-wrap">
+                <img class="food-img" src="../{{= foodImg}}">
+                <div class="caption">
+                    <p class="food-name">{{= foodName}}</p>
+                    <p class="food-description"></p>
+                    <p>
+                        <span>价格：&nbsp;&yen;{{= foodPrice}}</span>&nbsp;&nbsp;
+                        <span>销量：&nbsp;{{= buyNum}}</span>
+                    </p>
+                    <p>
+                        <button class="btn btn-primary" data-toggle="modal" food-id="{{= foodId}}" onclick="newFoodAddView(this)">编辑</button>
+                        {{if foodState==0}}
+						<button class="btn btn-default" data-toggle="modal" food-id="{{= foodId}}" onclick="openSaleView(this)">开售</button>
+						{{else}}
+						<button class="btn btn-default" data-toggle="modal" food-id="{{= foodId}}" onclick="stopSaleView(this)">停售</button>
+						{{/if}}
+                        <button class="btn btn-default" data-toggle="modal" food-id="{{= foodId}}" onclick="foodDeletView(this)">删除</button>
+                    </p>
+                </div>
+            </div>
+			</script>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="delOrStopTipModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">温馨提示</h4>
+				</div>
+				<div class="modal-body">
+					<p>确定要删除吗？</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary"
+						onclick="foodDelet(this)">删除</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="StopTipModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">温馨提示</h4>
+				</div>
+				<div class="modal-body">
+					<p>确定要停售吗？</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary"
+						onclick="stopSale(this)">停售</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="OpenTipModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">温馨提示</h4>
+				</div>
+				<div class="modal-body">
+					<p>确定要开售吗？</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary"
+						onclick="stopSale(this)">开售</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="foodEditOrAddModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">新增菜品</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" id="foodInfo" name="foodInfo"
+						method="post" enctype="multipart/form-data">
+						<input type="hidden" id="foodId" name="foodId" />
+						<div class="form-group">
+							<label for="foodName" class="col-sm-3 control-label">菜品名称：</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="foodName"
+									onblur="checkFoodName_()" name="foodName">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="foodName" class="col-sm-3 control-label">菜品价格：</label>
+							<div class="col-sm-3">
+								<div class="input-group">
+									<span class="input-group-addon">&yen;</span> <input type="text"
+										class="form-control" id="foodPrice" onblur="checkfoodPrice()"
+										name="foodPrice">
+								</div>
+							</div>
+							<label for="foodName" class="col-sm-3 control-label"></label>
+							<div class="col-sm-2">
+								<input type="hidden" class="form-control" readonly="readonly"
+									id="buyNum" name="buyNum">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="foodName" class="col-sm-3 control-label">菜品图片：</label>
+							<div class="col-sm-8">
+								<input type="file" class="form-control" id="foodImg"
+									name="foodImg">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="foodName" class="col-sm-3 control-label">菜品简介：</label>
+							<div class="col-sm-8">
+								<textarea rows="3" class="form-control" id="foodInfor"
+									onblur="checkFoodInfor()" name="foodInfor" style="resize: none"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary"
+						onclick="modifyAndAdd()">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<audio	id="myaudio"  controls="controls"  hidden="true">
+	<source src="../resource/audio02.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>

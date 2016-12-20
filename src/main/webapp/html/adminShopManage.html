@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/adminStyle.css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/shopInfoManage.js"></script>
+<script type="text/javascript" src="../js/Admin.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img class="logo-img"
+					src="../img/logo.png"></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="adminShopManage.html">餐厅管理</a></li>
+				<li><a href="adminShopVerify.html">餐厅审核</a></li>
+				<li><a href="adminSalesAnalysis.html">销量分析</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<button class="btn btn-primary">更新排名</button>
+			</div>
+			<div class="col-sm-7"></div>
+			<div class="col-sm-3 input-group">
+				<input type="text" class="form-control" id="searchName" placeholder="搜索餐厅名或ID">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" onclick="searchByName()">搜索</button>
+				</span>
+			</div>
+		</div>
+		<table class="table table-striped shop-table">
+			<thead>
+				<tr>
+					<th>餐厅ID</th>
+					<th>餐厅名称</th>
+					<th>订单量</th>
+					<th>评价数</th>
+					<th>投诉量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id="restaurantList"></tbody>
+		</table>
+		<script id="restaurantTmpl" type="text/x-jquery-tmpl">
+			<tr>
+					<td>{{= shopId}}</td>
+					<td>{{= shopName}}</td>
+					<td>{{= ordCount}}</td>
+					<td>{{= estCount}}</td>
+					<td>{{= comCount}}</td>
+					<td>
+							{{if shopState==1}}
+								<button class="btn btn-sm btn-danger"  onclick="cancelShop('{{= shopId}}')">强制停业</button>
+							
+                     	   {{else shopState==0}}<button class="btn btn-sm btn-primary"  onclick="openShop('{{= shopId}}')">允许营业</button>
+                           {{/if}}
+                   </td>
+				</tr>
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/shopManage.css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/shopOrderManager.js"></script>
+<script type="text/javascript" src="../js/shopCommon.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img class="logo-img"
+					src="../img/logo.png"></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="shopInfoManage.html">餐厅信息</a></li>
+				<li class="active"><a href="shopOrderManage.html">订单管理</a></li>
+				<li><a href="shopFoodManage.html">菜品管理</a></li>
+				<li>&nbsp;</li>
+				<li><a href="javascript:;" onclick="logout()">退出</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<ul class="nav nav-pills nav-stacked left-nav">
+			<li role="presentation" class="active" id="active0"><a href="javascript:;"
+				onclick="initOrderData(0)">最新订单</a></li>
+			<li role="presentation" class="active" id="active1"><a href="javascript:;"
+				onclick="initOrderData(1)">未送餐</a></li>
+			<li role="presentation" class="active" id="active2"><a href="javascript:;"
+				onclick="initOrderData(2)">送餐中</a></li>
+			<li role="presentation" class="active" id="active3"><a href="javascript:;"
+				onclick="initOrderData(3)">已完成</a></li>
+			<li role="presentation" class="active" id="active4"><a href="javascript:;"
+				onclick="initOrderData(4)">所有订单</a></li>
+		</ul>
+		<div id="orderList" class="order-list myhide"></div>
+		<script id="orderTmpl" type="text/x-jquery-tmpl">
+       	
+		<div class="panel panel-default">
+		<div class="order-dishes">
+		<h4 class="shop-name">订单号：{{= orderID}}</h4>
+		<table class="table order-dishes-table">
+			{{each(i, item) list}}
+			<tr>
+				<td class="food-name-td">{{= item.foodName}}</td>
+				<td class="food-count-td">{{= item.foodNum}}</td>
+				<td class="food-amount-td">&yen;{{= item.foodPrice}}</td>
+			</tr>
+			{{/each}}
+			<tr>
+				<td>配送费</td>
+				<td>&nbsp;</td>
+				<td class="send-add-td">&yen;{{= sendAdd}}</td>
+			</tr>
+			<tr>
+				<td>总价</td>
+				<td>&nbsp;</td>
+				<td class="total-price-td">&yen;{{= totalPrice}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="order-info">
+		<table class="table order-info-table">
+			<tr>
+				<td class="info-name">联&nbsp;系&nbsp;人&nbsp;：</td>
+				<td class="info-value">{{= userName}}</td>
+			</tr>
+			<tr>
+				<td>送餐地址：</td>
+				<td>{{= orderAddr}}</td>
+			</tr>
+			<tr>
+				<td>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</td>
+				<td>{{= orderTel}}</td>
+			</tr>
+			<tr>
+				<td>下单时间：</td>
+				<td>{{= orderTime}}</td>
+			</tr>
+			<tr>
+				<td>支付方式：</td>
+				<td>{{if orderState==1}} 货到付款 {{else orderState==2}} 储值卡付款
+					{{/if}}</td>
+			</tr>
+			<tr>
+				<td>派送状态：</td>
+				<td>{{if sendState==1}} 未派送 {{else sendState==0}} 未确认订单 {{else
+					sendState==2}} 正在派送 {{else sendState==3}} 已完成 {{else sendState==4}}
+					已取消 {{/if}}</td>
+			</tr>
+				<td></td>
+				<td>{{if sendState==0}} 
+											<input type="button" class="confirm-btn" value="确认订单" name="bt" data-id="{{= orderID}}" onClick="ordersure(this,1)">
+											<input type="button" class="cancle-btn" value="放弃订单" name="bt" data-id="{{= orderID}}" onClick="ordersure(this,4)">
+										{{/if}}
+										{{if sendState==1}} 
+											<input type="button" class="confirm-btn" value="送餐" name="bt" data-id="{{= orderID}}" onClick="ordersure(this,2)">
+										{{/if}}
+										{{if sendState==2}} 
+											<input type="button" class="confirm-btn" value="结束送餐" name="bt" data-id="{{= orderID}}" onClick="ordersure(this,3)">
+										{{/if}}</td>
+			<tr>
+			</tr>
+		</table>
+	</div>
+	<div class="clearfix"></div>
+	</div>
+	</script>
+	</div>
+	<audio	id="myaudio"  controls="controls"  hidden="true">
+	<source src="../resource/audio02.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>

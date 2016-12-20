@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/shopManage.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/Verify.js"></script>
+    <title>约饭吧</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"> <img class="logo-img" src="../img/logo.png"></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="admin.html">餐厅管理</a></li>
+            <li class="active"><a href="verifyShop.html">餐厅审核</a></li>
+            <li><a href="tongJi.html">销量分析</a></li>
+            <li><a href="javascript:;" onclick="logout()">退出</a></li>
+            <li>&nbsp;</li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="panel panel-default">
+        
+    </div>
+    <table class="table table-striped shop-table">
+			<thead>
+				<tr>
+				    <th></th>
+					<th>餐厅名</th>
+					<th>姓名</th>
+					<th>身份证号</th>
+					<th>店铺地址</th>
+					<th>联系方式</th>
+				</tr>
+			</thead>
+			<tbody id="verifyList"></tbody>
+		</table>
+		<script id="verifyTmpl" type="text/x-jquery-tmpl">
+			<tr>
+					<td><img class="restaurant-img" src="../{{= shopImg}}"></td>
+					<td>{{= shopName}}</td>
+					<td>{{= hostName}}</td>
+					<td>{{= hostCard}}</td>
+					<td>{{= shopAddr}}</td>
+                    <td>{{= shopTel}}</td>
+					<td>
+					
+					   <button class="btn btn-sm btn-danger"  onclick="notApprove('{{= shopId}}')">不通过</button>
+					</td>
+                    <td>		
+                     	<button class="btn btn-sm btn-primary"  onclick="approveShop('{{= shopId}}')">审核通过</button>
+                    </td>
+				</tr>
+		</script>
+</div>
+</body>
+</html>

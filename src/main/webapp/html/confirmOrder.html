@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/userCommon.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<script type="text/javascript" src="../js/cart.js"></script>
+<script type="text/javascript" src="../js/confirmOrder.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<!-- start 页面头部 -->
+	<div class="header">
+		<div class="header-content">
+			<!-- start LOGO -->
+			<div class="brand-logo">约饭吧</div>
+			<!-- end LOGO -->
+
+			<div class="user-op">
+				<div id="notLogin" class="">
+					<a class="nav-login" href="login.html">登录</a>|
+					<a class="nav-regist" href="regist.html">注册</a>
+				</div>
+				<div id="login" class="hide">
+					<p class="username" id="userName"></p>
+					<div id="userDrop" class="user-drop-wrap hide">
+						<div class="triangle-up"></div>
+						<ul class="user-drop-list">
+							<li><a href="myOrder.html">我的订单</a></li>
+							<li><a href="address.html">地址管理</a></li>
+							<li><a href="javascript:;" onclick="logout()">退出</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="top-nav">
+				<li><a class="nav-item" href="index.html">首页</a></li>
+				<li><a class="nav-item" href="myOrder.html">我的订单</a></li>
+				<li><a class="nav-item" href="address.html">个人中心</a></li>
+				<li><a class="nav-item" href="collection.html">我的收藏</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end 页面头部 -->
+
+	<!-- start 页面内容 -->
+	<div class="container">
+		<div class="main-content">
+			<!-- 餐厅分类及搜索 -->
+			<div class="selector-wrap">
+				<div class="curr-location">
+					<span>当前位置:</span>&nbsp;&nbsp; <a class="home" href="index.html">首页</a>&nbsp;&gt;&nbsp;
+					<a class="home" id="shopHref" href=""><span id="shopName"></span></a>&nbsp;&gt;&nbsp;
+					<span>确认订单</span>
+				</div>
+				<div class="search-box">
+					<input type="text" id="searchText" placeHolder="搜索餐厅或菜品"> 
+					<a class="search-btn" href="javascript:;" onclick="searchRestaurant()">搜索</a>
+				</div>
+			</div>
+
+			<!-- 订单菜品信息 -->
+			<div class="dish-detail-wrap">
+				<div class="title">
+					<a id="cartBackShop" href=""><i></i><span>购物车</span></a>
+				</div>
+				<div class="detail-panel" id="dishDetailPanel">
+					<table>
+						<thead class="detail-title">
+							<tr>
+								<th class="dt-name">菜品</th>
+								<th class="dt-price">单价</th>
+								<th class="dt-count">份数</th>
+								<th class="dt-amount">金额</th>
+							</tr>
+						</thead>
+						<tbody id="orderItemList" class="orderItemList">
+
+						</tbody>
+					</table>
+					<script id="orderItemTmpl" type="text/x-jquery-tmpl">
+						<tr>
+							<td class="dt-name">{{= foodName}}</td>
+							<td class="dt-price">&yen;{{= foodPrice}}</td>
+							<td class="dt-count">{{= foodCount}}</td>
+							<td class="dt-amount">&yen;{{= foodAmount}}</td>
+						</tr>
+					</script>
+					<script id="orderSendAddTmpl" type="text/html">
+						<tr>
+							<td class="dt-name">配送费</td>
+							<td class="dt-price">&nbsp;</td>
+							<td class="dt-count">&nbsp;</td>
+							<td class="dt-amount">&yen;<span id="sendAddPrice"></span></td>
+						</tr>
+					</script>
+				</div>
+				<div class="detail-amount">
+					<span class="amount-txt">总价:&nbsp;&nbsp;</span> 
+					<span class="amount-value">&yen;<span id="amountValue"></span></span>
+				</div>
+			</div>
+
+			<!-- 右边布局 -->
+			<div class="order-right-wrap">
+				<p class="right-header">
+					<span>收货人信息:</span>
+					<a href="javascript:;" class="add-addr-btn" onclick="popAddrInput()">新增地址</a>
+				</p>
+				<div id="addrList" class="addr-list hide"></div>
+				<script id="addrTmpl" type="text/x-jquery-tmpl">
+					<div class="addr-wrap" data-addrId="{{= id}}" onclick="selectAddr(this)">
+						<div class="addr-name">{{= getName}}</div>
+						<div class="addr-tel">{{= userPhone}}</div>
+						<div class="addr-info">{{= userAddress}}</div>
+						<div class="addr-selected-icon hide"></div>
+					</div>
+				</script>
+				<div id="addrPageInput" class="addr-input-wrap">
+					<div class="input-control">
+						<div class="input-title">姓&nbsp;&nbsp;&nbsp;&nbsp;名：</div>
+						<input id="addrName1" class="input-txt" type="text" maxlength="10">
+						<p class="tip-msg"></p>
+					</div>
+					<div class="input-control">
+						<div class="input-title">电&nbsp;&nbsp;&nbsp;&nbsp;话：</div>
+						<input id="addrTel1" class="input-txt" type="text" maxlength="11">
+						<p class="tip-msg"></p>
+					</div>
+					<div class="input-control">
+						<div class="input-title">地&nbsp;&nbsp;&nbsp;&nbsp;址：</div>
+						<input id="addrInfo1" class="input-txt" type="text" maxlength="30">
+						<p class="tip-msg"></p>
+					</div>
+					<div class="input-group">
+						<input type="button" class="save-btn" onclick="saveAddr1()" value="保存"> 
+					</div>
+				</div>
+				<div class="pay-select-wrap">
+					<p class="pay-header">支付方式：</p>
+					<ul class="pay-select">
+						<li class="pay-item selected-item" data-payway="1" onclick="selectPayWay(this)">
+							<span>货到付款</span>
+							<span></span>
+						</li>
+						<li class="pay-item" data-payway="2" onclick="selectPayWay(this)">
+							<span>储值卡支付</span>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="do-order">
+					<button id="confirmOrderBtn" class="confirm-order-btn disabled-btn" onclick="confirmOrder()">确认下单</button>
+				</div>
+			</div>
+			<div class="clear"></div>
+
+		</div>
+
+		<!-- 新增地址弹出框 -->
+		<div id="addrInputPop" class="pop-wrap hide">
+			<div class="addr-popbox">
+				<form name="addAddrForm" action="" method="post">
+					<div class="input-control">
+						<div class="input-title">姓&nbsp;&nbsp;&nbsp;&nbsp;名：</div>
+						<input id="addrName2" class="input-txt" type="text" maxlength="10">
+						<p class="tip-msg"></p>
+					</div>
+					<div class="input-control">
+						<div class="input-title">电&nbsp;&nbsp;&nbsp;&nbsp;话：</div>
+						<input id="addrTel2" class="input-txt" type="text" maxlength="11">
+						<p class="tip-msg"></p>
+					</div>
+					<div class="input-control">
+						<div class="input-title">地&nbsp;&nbsp;&nbsp;&nbsp;址：</div>
+						<input id="addrInfo2" class="input-txt" type="text" maxlength="30">
+						<p class="tip-msg"></p>
+					</div>
+					<div class="input-group">
+						<input type="button" class="save-btn" onclick="saveAddr2()" value="保存"> 
+						<input type="button" class="cancle-btn"	onclick="closeAddrInput()" value="取消">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- end 页面内容 -->
+
+	<!-- start 页面底部 -->
+	<div class="footer"></div>
+	<!-- start 页面底部 -->
+</body>
+</html>

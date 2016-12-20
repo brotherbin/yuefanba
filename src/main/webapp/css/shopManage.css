@@ -1,0 +1,98 @@
+@CHARSET "UTF-8";
+html{
+	overflow-y: scroll; 
+}
+body{
+	padding-top: 71px;
+	font-family: "Microsoft YaHei";
+}
+.myhide{
+	display: none;
+}
+.container{
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+.logo-img{
+	width: 70px;
+	height: 40px;
+	margin-top: -10px;
+}
+.shop-img{
+	width: 240px;
+	height: 190px;
+}
+.left-nav{
+	width: 200px;
+	position: fixed;
+}
+.order-list{
+	width: 760px;
+	height: auto;
+	margin-left: 220px;
+	float: left;
+	position: relative;
+}
+.order-dishes, .order-info{
+	width: 379px;
+	height: 100%;
+	position: relative;
+	float: left;
+	padding-left: 10px;
+}
+.order-info{
+	height: 100%;
+	background-color: #efefef;
+}
+table.order-dishes-table{
+
+}
+table.order-dishes-table .food-name-td{
+	width: 200px;
+}
+table.order-dishes-table .food-count-td{
+	width: 80px;
+}
+table.order-dishes-table .food-amount-td{
+	text-align: center;
+}
+table.order-dishes-table .send-add-td{
+	text-align: center;
+}
+table.order-dishes-table td.total-price-td{
+	color: rgb(245,45,75);
+	font-size: 22px;
+}
+table.order-info-table{
+	margin-top: 8px;
+}
+table.order-info-table tr td{
+	border: 0;
+}
+table.order-info-table td.info-name{
+	width: 100px;
+}
+.shop-name{
+	height: 30px;
+}
+.food-wrap{
+	width: 224px;
+	margin-left: 10px;
+	float: left;
+}
+.food-img{
+	width: 214px;
+	height: 166px !important;
+}
+.restaurant-img{
+	width: 214px;
+	height: 166px !important;
+}
+ul.restaurant-classify li.active0 {
+	background-color: #efefef;
+}
+ul.restaurant-classify li.active1 {
+	background-color: #fff;
+}

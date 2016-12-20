@@ -1,0 +1,138 @@
+
+<!DOCTYPE html">
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="author" content="brotherbin">
+<link rel="stylesheet" type="text/css" href="../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/userCommon.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/complaint.css">
+<script type="text/javascript" src="../js/complaint.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<!-- start 页面头部 -->
+	<div class="header">
+		<div class="header-content">
+			<!-- start LOGO -->
+			<div class="brand-logo">约饭吧</div>
+			<!-- end LOGO -->
+
+			<div class="user-op">
+				<div id="notLogin" class="hide">
+					<a class="nav-login" href="login.html">登录</a>| <a
+						class="nav-regist" href="regist.html">注册</a>
+				</div>
+				<div id="login" class="">
+					<p class="username" id="userName"></p>
+					<div id="userDrop" class="user-drop-wrap hide">
+						<div class="triangle-up"></div>
+						<ul class="user-drop-list">
+							<li><a href="myOrder.html">我的订单</a></li>
+							<li><a href="address.html">地址管理</a></li>
+							<li><a href="javascript:;" onclick="logout()">退出</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="top-nav">
+				<li><a class="nav-item " href="index.html">首页</a></li>
+				<li><a class="nav-item" href="myOrder.html">我的订单</a></li>
+				<li><a class="nav-item active" href="address.html">个人中心</a></li>
+				<li><a class="nav-item " href="collection.html">我的收藏</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end 页面头部 -->
+
+	<!-- start 页面内容 -->
+	<div class="container">
+		<div class="main-content">
+			<div class="selector-wrap">
+				<div class="curr-location">
+					<span>当前位置:</span>&nbsp;&nbsp;<a class="home" href="index.html">首页</a>&nbsp;&gt;&nbsp;<span>个人中心</span>&nbsp;&gt;&nbsp;<span>投诉中心</span>
+				</div>
+				<div class="search-box">
+					<input type="text" id="searchText" placeHolder="搜索餐厅或菜品"> <a
+						class="search-btn" href="javascript:;"
+						onclick="searchRestaurant()">搜索</a>
+				</div>
+			</div>
+			<!-- 个人中心 -->
+			<div id="person">
+				<div class="center">个人中心</div>
+				<ul class="person-classify">
+
+					<li class="order"><a href="valuecard.html"><img
+							src="../img/order.png">储值卡</a></li>
+					<li class="adress"><a href="address.html"><img
+							src="../img/address.png">地址管理</a></li>
+					<li class="collection"><a href="collection.html"><img
+							src="../img/collection.png">收藏夹</a></li>
+					<li class="complain p-active"><a href="complaint.html"><img
+							src="../img/complain.png">投诉中心</a></li>
+				</ul>
+			</div>
+			<!-- 这里写页面内容 -->
+			<div class="outside_border">
+				<div class="word_style1">
+					<p>投诉中心</p>
+				</div>
+				<form method="POST" action="xxx.cgi">
+					<div class="word_style">
+						<p style="margin-left: 95px; margin-top: 20px">
+							订单编号： <input type="text" onfocus="javascript:this.value=''"
+								id="order">
+						</p>
+					</div>
+					<!--以上是订单编号-->
+
+					<!-- 以下是投诉内容 -->
+					<div class="word_style">
+						<p style="margin-left: 95px; margin-top: 20px">
+							投诉内容 :<span style="font-size: 12px; margin-left: 10px">(200字以内)</span>
+						</p>
+
+					</div>
+
+					<div class="input_box1">
+						<textarea name="MSG" cols="40" rows="6" style="resize: none"
+							maxlength="200" onkeypress="checkName(this)" id="content"></textarea>
+					</div>
+					<!--以上是投诉内容-->
+
+					<div class="word_style">
+						<p
+							style="margin-left: 95px; margin-top: 20px; margin-bottom: -40px">
+							手机号码： <input type="text" onfocus="javascript:this.value=''"
+								id="telnumber" placeholder="请输入手机号码">
+						</p>
+					</div>
+					<!-- 以上是投诉者的电话 -->
+
+				</form>
+				<div class="word_style2">
+					<input name="submit" type="submit" value="提交"
+						onclick="submitComplaint()" class="save" />
+				</div>
+				<!-- 以下是弹出提交成功提示框 -->
+				<div class="pop-wrap hide" id="addrPopBox">
+					<form action="address.html" class="contact">
+						<p>提交成功，点击确定回到主页</p>
+						<input name="reset" type="button" onClick="JumpBack()" value="确定"
+							class="sure" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end 页面内容 -->
+	<!-- start 页面底部 -->
+	<div class="footer"></div>
+	<!-- end 页面底部 -->
+</body>
+</html>

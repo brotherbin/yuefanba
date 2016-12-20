@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/shopManage.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/shopInfoManage.js"></script>
+    <script type="text/javascript" src="../js/shopCommon.js"></script>
+    <title>约饭吧</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"> <img class="logo-img" src="../img/logo.png"></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="shopInfoManage.html">餐厅信息</a></li>
+            <li><a href="shopOrderManage.html">订单管理</a></li>
+            <li><a href="shopFoodManage.html">菜品管理</a></li>
+            <li>&nbsp;</li>
+            <li><a href="javascript:;" onclick="logout()">退出</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">餐厅基本信息 <button type="button" class="btn btn-default btn-xs pull-right" onclick="editable_()">编辑</button> </div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="shopInfo" name="shopInfo" method="post"
+				enctype="multipart/form-data">
+					<input type="hidden" id="shopId" name="shopId" class="w1" /> 
+					<input type="hidden" id="userId" name="userId" class="w1"  /> 
+					<input type="hidden" readonly="readonly" id="shopState" name="shopState"/>
+					<div class="form-group">
+                    <label for="shoperName" class="col-sm-2 control-label">店主姓名：</label>
+                    <div class="col-sm-3 has-feedback">
+                        <input type="text" class="form-control" id="shoperName" name="shoperName" maxlength="10" onblur="checkShoperName(this)">
+                        <span class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <label for="shoperIDNumber" class="col-sm-2 control-label">身份证号：</label>
+                    <div class="col-sm-4 has-feedback">
+                        <input type="text" class="form-control" id="shoperIDNumber" name="shoperIDNumber" maxlength="18" onblur="checkIDNumber(this)">
+                        <span class="glyphicon form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shopName" class="col-sm-2 control-label">餐厅名称：</label>
+                    <div class="col-sm-3 has-feedback">
+                        <input type="text" class="form-control" id="shopName" name="shopName" onblur="checkShopName(this)">
+                        <span class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <label for="shopTel" class="col-sm-2 control-label">联系手机：</label>
+                    <div class="col-sm-4 has-feedback">
+                        <input type="text" class="form-control" id="shopTel" name="shopTel" onblur="checkTel(this)">
+                        <span class="glyphicon form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shopImgFile" class="col-sm-2 control-label">餐厅图片：</label>
+                    <div class="col-sm-3 has-feedback">
+                        <input type="file" class="form-control" id="shopImgFile"  name="shopImgFile">
+                    </div>
+                    <label for="sendAdd" class="col-sm-2 control-label">配送费：</label>
+                    <div class="col-sm-3">
+                        <div class="input-group has-feedback">
+                            <span class="input-group-addon">&yen;</span>
+                            <input type="text" class="form-control" id="sendAdd" name="sendAdd" onblur="checkSendAdd(this)">
+                            <span class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shoperName" class="col-sm-2 control-label">起送价：</label>
+                    <div class="col-sm-3">
+                        <div class="input-group has-feedback">
+                            <span class="input-group-addon">&yen;</span>
+                            <input type="text" class="form-control" id="startPrice" name="startPrice" onblur="checkStartPrice(this)">
+                            <span class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <label for="sendTime" class="col-sm-2 control-label">配送时间：</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="sendTime" name="sendTime">
+                            <option value="15">15分钟</option>
+                            <option value="20">20分钟</option>
+                            <option value="30">30分钟</option>
+                            <option value="35">35分钟</option>
+                            <option value="40">40分钟</option>
+                            <option value="45">45分钟</option>
+                            <option value="60">一小时</option>                        
+                        </select>
+                    </div>                  
+                </div>
+                <div class="form-group">
+                    <label for="startTime" class="col-sm-2 control-label">开始营业时间：</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="startTime" name="startTime">
+                            <option value="06:00:00">06:00</option>
+                            <option value="06:30:00">06:30</option>
+                            <option value="07:00:00">07:00</option>
+                            <option value="07:30:00">07:30</option>
+                            <option value="08:00:00">08:00</option>
+                            <option value="08:30:00">08:30</option>
+                            <option value="09:00:00">09:00</option>
+                            <option value="09:30:00">09:30</option>
+                            <option value="10:00:00">10:00</option>
+                            <option value="11:00:00">11:00</option>
+                            <option value="12:00:00">12:00</option>
+                        </select>
+                    </div>
+                    <label for="endTime" class="col-sm-2 control-label">结束营业时间：</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="endTime" name="endTime">
+                            <option value="18:00:00">18:00</option>
+                            <option value="19:00:00">19:00</option>
+                            <option value="20:00:00">20:00</option>
+                            <option value="21:00:00">21:00</option>
+                            <option value="22:00:00">22:00</option>
+                            <option value="23:00:00">23:00</option>
+                            <option value="24:00:00">24:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shopAddr" class="col-sm-2 control-label">餐厅地址：</label>
+                    <div class="col-sm-9 has-feedback">
+                        <input type="text" class="form-control" id="shopAddr" name="shopAddr" maxlength="50" onblur="checkShopAddr(this)">
+                        <span class="glyphicon form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shopAddr" class="col-sm-2 control-label">餐厅类型：</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="shopType" name="shopType" placeholder="请点击下方分类名" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group col-sm-offset-2 col-sm-5" data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input name="shopTypeCheckBox" onchange="chooseShopType()" value="中餐" type="checkbox" autocomplete="on">中餐
+                        </label>
+                        <label class="btn btn-default">
+                            <input name="shopTypeCheckBox" onchange="chooseShopType()" value="西餐" type="checkbox" autocomplete="on">西餐
+                        </label>
+                        <label class="btn btn-default">
+                            <input name="shopTypeCheckBox" onchange="chooseShopType()" value="烧烤" type="checkbox" autocomplete="on">烧烤
+                        </label>
+                        <label class="btn btn-default">
+                            <input name="shopTypeCheckBox" onchange="chooseShopType()" value="早茶" type="checkbox" autocomplete="on">早茶
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="shopAddr" class="col-sm-2 control-label">餐厅公告：</label>
+                    <div class="col-sm-9">
+                        <textarea rows="3" class="form-control" id="shopNotice" name="shopNotice" maxlength="200"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-2">
+                        <input type="button"  onclick="shopInfoMessage_()" class="btn btn-primary" value="提交审核">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<audio	id="myaudio"  controls="controls"  hidden="true">
+	<source src="../resource/audio02.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>

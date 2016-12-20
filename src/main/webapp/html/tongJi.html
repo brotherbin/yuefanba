@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/shopManage.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/TongJi.js"></script>
+    <title>约饭吧</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"> <img class="logo-img" src="../img/logo.png"></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="admin.html">餐厅管理</a></li>
+            <li><a href="verifyShop.html">餐厅审核</a></li>
+            <li class="active"><a href="tongJi.html">销量分析</a></li>
+            <li><a href="javascript:;" onclick="logout()">退出</a></li>
+            <li>&nbsp;</li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+    	<div id="TongJiAll" class="col-sm-3"></div>
+    	<script id="AllTmpl" type="text/x-jquery-tmpl">
+                	入驻商家数：{{= default1}}<span></span>
+    	</script>
+    	<div  id="AllUser" class="col-sm-3"></div>
+    	 <script id="UserTmpl" type="text/x-jquery-tmpl">
+          	 总用户数：{{= default2}}<span></span></div>
+    	 </script>
+    </div>
+    <div class="panel panel-default">
+    	<div class="panel-heading">销量前十餐厅
+    	</div>
+    	<div class="panel-body">
+	    	<table class="table table-striped shop-table">
+				<thead>
+					<tr>
+					    <th>排名</th>
+						<th></th>
+						<th>餐厅名称</th>
+						<th>订单量</th>
+					</tr>
+				</thead>
+				<tbody id="TongJiList"></tbody>
+			</table>
+			<script id="TongJiTmpl" type="text/x-jquery-tmpl">
+			<tr>
+                    <td>NO.{{= shopIndex}}</td>
+					<td><img class="restaurant-img" src="../{{= shopImg}}"></td>
+					<td>{{= shopName}}</td>
+					<td>{{= default2}}</td>
+			</tr>
+		</script>
+    	</div>
+    </div>
+    
+	<div class="panel panel-default">
+    	<div class="panel-heading">销量前十菜品
+    	</div>
+    	<div class="panel-body">
+	    	<table class="table table-striped shop-table">
+				<thead>
+					<tr>
+					    <th>排名</th>
+						<th></th>
+						<th>菜品名称</th>
+						<th>销售量</th>
+					</tr>
+				</thead>
+				<tbody id="TongJiListShop"></tbody>
+			</table>
+			<script id="TongJiFood" type="text/x-jquery-tmpl">
+			<tr>
+                    <td>NO.{{= foodIndex}}</td>
+					<td><img class="restaurant-img" src="../{{= foodImg}}"></td>
+					<td>{{= foodName}}</td>
+					<td>{{= default2}}</td>
+			</tr>
+		</script>
+    	</div>
+    </div>	
+</div>
+</body>
+</html>

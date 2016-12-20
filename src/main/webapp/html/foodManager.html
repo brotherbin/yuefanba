@@ -1,0 +1,99 @@
+
+<!DOCTYPE html">
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" style="text/css" href="../css/reset.css">
+<link rel="stylesheet" style="text/css" href="../css/common.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+
+<script type="text/javascript" src="../js/foodManager.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<!-- start 页面头部 -->
+	<div class="header">
+		<div class="header-content">
+			<!-- start LOGO -->
+			<div class="brand-logo">约饭吧</div>
+			<!-- end LOGO -->
+
+			<div class="user-op">
+				<div id="notLogin" class="hide">
+					<a class="nav-login" href="login">登录</a>| <a class="nav-regist"
+						href="regist">注册</a>
+				</div>
+				<div id="login" class="">
+					<p class="username" id="userName"></p>
+					<div id="userDrop" class="user-drop-wrap hide">
+						<div class="triangle-up"></div>
+						<ul class="user-drop-list">
+							<!-- <li><a href="">信息管理</a></li>
+							<li><a href="">菜品管理</a></li>
+							<li><a href="">收支查询</a></li> -->
+							<li><a href="javascript:;" onclick="logout()">退出</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="top-nav">
+				<li><a class="nav-item" href="shopInfo.html">订单管理</a></li>
+				<li><a class="nav-item" href="shopMessage.html">餐厅信息</a></li>
+				<li class="active"><a class="nav-item" href="foodManager.html">菜品管理</a></li>
+				<!-- <li><a class="nav-item" href="shopManager/incomeQuery">收支查询</a></li> -->
+			</ul>
+		</div>
+	</div>
+	<!-- end 页面头部 -->
+
+	<!-- start 页面内容 -->
+	<div class="container">
+		<div class="main-content">
+			<!-- 餐厅分类及搜索 -->
+			<div class="selector-wrap">
+				<ul class="restaurant-classify">
+					<li class="active"><a href="foodManager.html">菜品信息</a></li>
+					<li><a href="newFoodAdd.html">菜品增加</a></li>
+
+
+				</ul>
+				<!-- <div class="search-box">
+					<input type="text" id="searchText" placeHolder="搜索菜品名称">
+					<a class="search-btn" href="shopManager/foodSearch">搜索</a>
+				</div> -->
+			</div>
+
+			<!-- 餐厅列表 -->
+			<div id="foodList" class="order-list hide"></div>
+			<script id="foodTmpl" type="text/x-jquery-tmpl">
+				<div class="restaurant-wrap">
+					<a href="newFoodAdd.html?foodId={{= foodId}}"><img class="restaurant-img" src="../{{= foodImg}}"></a>
+					<div class="restaurant-info">
+						
+						<a class="rest-name" href="newFoodAdd.html?foodId={{= foodId}}">名称：{{= foodName}}</a>
+						<div class="">价格：{{= foodPrice}}元/份</div>
+						<div class="">食品简介：{{= foodInfor}}</div>
+						<div class="">食品数量：{{= buyNum}}份</div>
+						<div><a class="cut-btn" href="javascript:;"  food-id="{{= foodId}}" onclick="foodDelet(this)">
+						<span></span></a></div>	
+						
+					</div>
+				</div>
+			 </script>
+			<div id="loadingFoodList" class="loading-order-list">
+				<img src="img/loading01.gif">
+				<p>正在加载</p>
+			</div>
+		</div>
+		<a id="toTop" href="foodManager.html#top">顶部</a>
+	</div>
+	<!-- end 页面内容 -->
+
+	<!-- start 页面底部 -->
+	<div class="footer"></div>
+	<!-- start 页面底部 -->
+</body>
+</html>

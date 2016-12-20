@@ -1,0 +1,247 @@
+html, body{
+	width: 100%;
+	height: 100%;
+	background-color: #efefef;
+}
+.hide{
+	display: none;
+}
+.invis{
+	visibility: hidden;
+}
+.clear{
+	clear:both;
+}
+/* start 头部布局 */
+.header{
+	width: 100%;
+	height: 50px;
+	background-color: #ef2d4b;
+	color: #fff;
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+}
+/* 内容布局 */
+.container{
+	width: 980px;
+	height: auto;
+	margin: 0 auto;
+	background-color: #fff;
+	padding-top: 50px;
+}
+.main-content{
+	width: 980px;
+	height: auto;
+}
+/* 页脚布局 */
+.footer{
+	width: 100%;
+	height: 100px;
+}
+
+/* 头部内容样式 */
+.header-content{
+	width: 980px;
+	height: 50px;
+	margin: 0 auto;
+}
+/* 商标样式 */
+.brand-logo{
+	position: relative;
+	float: left;
+	width: auto;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+}
+.brand-logo img{
+	width: 120px;
+	height: 50px;
+}
+/* 用户登录、注册 */
+.user-op{
+	width: 140px;
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	float: right;
+	text-align: center;
+}
+.nav-login, .nav-regist{
+	padding: 0 5px;
+	color: #fff;
+}
+.nav-login:hover, .nav-regist:hover{
+	color: #ddd;
+}
+/* 个人中心下拉列表 */
+.user-drop-wrap{
+	width: 140px;
+	height: auto;
+	position: absolute;
+	top: 50px;
+	right: 0;
+}
+.user-drop-list{
+	width: 140px;
+	height: auto;
+	border-left: solid 1px #ccc;
+	border-right: solid 1px #ccc;
+}
+.user-drop-list li{
+	list-style-type: none;
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: solid 1px #ccc;
+	background-color: #fff;
+}
+.user-drop-list li a{
+	width: 110px;
+	height: 40px;
+	display: block;
+	text-align: left;
+	padding-left: 30px;
+}
+.triangle-up{
+	width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    left: 65px;
+    top: -10px;
+}
+
+/* 头部导航样式 */
+.top-nav{
+	width: auto;
+	height: 50px;
+	position: relative;
+	float: right;
+}
+.top-nav li{
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	list-style-type: none;
+	float: left;
+	text-align: center;
+}
+.top-nav .nav-item{
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 50px;
+	color: #fff;
+	font-size: 14px;
+}
+.top-nav .nav-item:hover, .top-nav .active{
+	background-color: #ef2b2b;
+}
+
+.selector-wrap {
+	width: 100%;
+	height: 50px;
+	background-color: #efefef;
+}
+/* 页面头部的“当前位置”样式  */
+.curr-location {
+	float: left;
+	width: auto;
+	height: 50px;
+	line-height: 50px;
+	font-size: 14px;
+}
+.curr-location .home {
+	color: #000;
+}
+.home:hover {
+	color: rgb(245, 45, 75);
+}
+
+/* 搜索框样式 */
+.search-box {
+	float: right;
+	width: 270px;
+	height: 30px;
+	margin-top: 10px;
+	background-color: #fff;
+}
+#searchText {
+	width: 210px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 5px;
+	margin-left: 10px;
+	border: 0;
+	outline: none;
+	float: left;
+}
+.search-btn {
+	width: 50px;
+	height: 30px;
+	display: block;
+	background-color: #ef2d4b;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+}
+.search-btn:hover{
+	background-color: #ef2b2b;
+}
+
+/* 回到顶部  */
+#toTop{
+	display: none;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	position: fixed;
+	bottom: 20px;
+	background-color: rgb(245,45,75);
+	color: #fff;
+	text-align: center;
+}
+
+
+/* 个人中心导航 */
+.u-nav-wrap{
+	width: 180px;
+	height: 300px;
+	margin: 20px 0 0 20px;
+	border: solid 1px #999;
+}
+
+/* 弹出框  */
+.pop-wrap{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,.6);
+	z-index: 999;	
+}
+/* 正在加载样式 */
+.loading-restaurant-list {
+	position: relative; 
+	width : 100px;
+	height: 40px;
+	margin: 0 auto;
+}
+.loading-restaurant-list img {
+	width: 100px;
+	height: 20px;
+}
+
+.loading-restaurant-list p {
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+}

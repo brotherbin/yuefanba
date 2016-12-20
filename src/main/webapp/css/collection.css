@@ -1,0 +1,309 @@
+/* 收藏夹页面*/
+.main-content {
+	width: 780px;
+	height: auto;
+	margin-left: auto;
+}
+test-collect{
+	width: 30px;
+	height: 80px;
+	background-color: pink;
+	
+}
+
+#person {
+	width: 160px;
+	height: 45px;
+	font-size: 1.2em;
+	margin-left: 20px;
+	border: blue;
+	font-family: "Microsoft Yahei UI", "Microsoft YaHei", Helvetica, Arial,
+		sans-serif;
+	float: left;
+}
+
+.center {
+	height: 80px;
+	font-size: 18px;
+	line-height: 80px;
+	border-bottom-style: groove;
+	border-bottom-width: thin;
+}
+
+.person-classify {
+	line-height: 3;
+}
+
+ul.person-classify li {
+	width: 100%;
+	height: 100%;
+	text-indent: 2em;
+}
+
+img {
+	margin-right: 15px;
+	vertical-align: middle;
+}
+
+ul.person-classify li:hover {
+	background-color: #ccc;
+}
+
+ul.person-classify li.center {
+	font-size: 20px;
+	border-bottom-style: groove;
+	border-bottom-width: thin;
+}
+.address{
+	border-left: 2px solid white;
+}
+ .complain{
+ 	border-left: 2px solid white;
+ }
+.order{
+	border-left: 2px solid white;
+}
+ul.person-classify li a {
+	color: black;
+}
+
+ul.person-classify li a:hover {
+	color: rgb(245, 45, 75);
+}
+
+.collection {
+	border-left: 2px solid pink;
+}
+
+/*	  无收藏的显示	*/
+.main-content .empty-con {
+	margin-top: 160px;
+	text-align: center;
+	font-size: 18px;
+	color: #999;
+}
+/*	  取消收藏按钮	*/
+.restaurant-wrap{
+	position: relative;
+}
+.restaurant-wrap .esc-collection{
+	display: none;
+	right: 0;
+	top: 0;
+	height: 30px;
+	padding: 0 15px;
+	line-height: 30px;
+	width: 60px;
+	background: #ff2d4b;
+	font-size: 15px;
+	color: #fff;
+	z-index: 13;
+	position: absolute;
+}
+/* 选择框ʽ */
+.selector-wrap {
+	width: 100%;
+	height: 50px;
+	background-color: #efefef;
+}
+
+ul.restaurant-classify {
+	float: left;
+	width: auto;
+	height: 50px;
+	list-style-type: none;
+}
+
+ul.restaurant-classify li {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 16px;
+	float: left;
+}
+
+ul.restaurant-classify li.active {
+	background-color: #fff;
+}
+
+ul.restaurant-classify li a {
+	color: #000;
+}
+
+ul.restaurant-classify li a:hover {
+	color: rgb(245, 45, 75);
+}
+
+/* 搜索框 */
+.search-box {
+	float: right;
+	width: 260px;
+	height: 30px;
+	margin-top: 10px;
+	background-color: #fff;
+}
+
+#searchText {
+	width: 200px;
+	padding-left: 10px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 5px;
+	border: 0;
+	outline: none;
+	float: left;
+}
+
+.search-btn {
+	width: 50px;
+	height: 30px;
+	display: block;
+	background-color: #ef2d4b;
+	float: right;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+}
+
+/* 餐厅列表ʽ */
+.restaurant-list {
+	width: 100%;
+	height: auto;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+
+.restaurant-wrap {
+	display: inline-block;
+	width: 230px;
+	height: 260px;
+	margin: 7px;
+}
+
+.restaurant-img {
+	width: 100%;
+	height: 160px;
+}
+
+.restaurant-info {
+	width: 220px;
+	height: 100px;
+	margin-top: -2px;
+	padding-left: 10px;
+	background-color: rgb(240, 240, 240);
+}
+
+.restaurant-info span {
+	padding: 0 10px 0 0;
+}
+
+.rest-name {
+	width: auto;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	font-size: 18px;
+	color: #000;
+}
+
+.rest-name:hover {
+	color: rgb(245, 45, 75);
+}
+
+/* �������ڼ�����ʽ */
+.loading-restaurant-list {
+	width: 100px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.loading-restaurant-list img {
+	width: 100px;
+	height: 20px;
+}
+
+.loading-restaurant-list p {
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+}
+
+/* ������Ʒ�б�ҳ�е�ǰλ����ʽ  */
+.curr-location {
+	float: left;
+	width: auto;
+	height: 50px;
+	line-height: 50px;
+	font-size: 14px;
+}
+
+.curr-location .home {
+	color: #000;
+}
+
+.home:hover {
+	color: rgb(245, 45, 75);
+}
+
+/* ������ϸ��Ϣ��ʽ */
+.restaurant-detail {
+	width: 100%;
+	height: 120px;
+}
+
+.rest-img {
+	width: 230px;
+	height: 100%;
+	float: left;
+}
+
+.detail-part1 {
+	width: 280px;
+	height: 100%;
+	float: left;
+	border-right: solid 1px red;
+}
+
+.detail-part1 p {
+	padding: 6px 10px;
+}
+
+.part1-rest-name {
+	font-size: 22px;
+}
+
+.detail-part2 {
+	width: 280px;
+	height: 100%;
+	float: left;
+	border-right: solid 1px red;
+}
+
+/* ���˵����������ۡ� �л��� */
+.switch-tab {
+	width: 100%;
+	height: 50px;
+	background-color: rgb(225, 225, 225);
+}
+
+.switch-tab a.tab-item {
+	display: block;
+	width: 115px;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	text-align: center;
+	color: #000;
+}
+
+.switch-tab a.tab-item:hover {
+	color: rgb(245, 45, 75);
+}
+
+.switch-tab a.active {
+	background-color: #fff;
+}

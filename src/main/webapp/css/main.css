@@ -1,0 +1,790 @@
+/* 餐厅选择内容区样式 */
+.selector-wrap {
+	width: 100%;
+	height: 50px;
+	background-color: #efefef;
+}
+ul.restaurant-classify {
+	float: left;
+	width: auto;
+	height: 50px;
+	list-style-type: none;
+}
+ul.restaurant-classify li {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 16px;
+	float: left;
+}
+ul.restaurant-classify li.active {
+	background-color: #fff;
+}
+ul.restaurant-classify li.active0 {
+	background-color: #fff;
+}
+ul.restaurant-classify li.active1 {
+	background-color: #efefef;
+}
+
+ul.restaurant-classify li a {
+	color: #000;
+}
+ul.restaurant-classify li a:hover {
+	color: rgb(245, 45, 75);
+}
+
+/* 餐厅列表样式 */
+.restaurant-list {
+	width: 980px;
+	height: auto;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+.restaurant-wrap {
+	display: inline-block;
+	width: 230px;
+	height: 260px;
+	margin: 10px 0 0 10px;
+	border: solid 1px #fff;
+}
+.restaurant-wrap:hover{
+	border: solid 1px #ef2d4b;
+}
+.img-wrap-href{
+	width: 100%;
+	height: 160px;
+	display: block;
+}
+.restaurant-img {
+	width: 100%;
+	height: 160px;
+}
+.restaurant-info {
+	width: 220px;
+	height: 100px;
+	padding-left: 10px;
+	background-color: rgb(240, 240, 240);
+}
+.rest-info-line{
+	height: 30px;
+	line-height: 30px;
+}
+.restaurant-info span {
+	padding: 0 10px 0 0;
+}
+.rest-name {
+	width: auto;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	font-size: 18px;
+	color: #000;
+}
+.rest-name:hover {
+	color: rgb(245, 45, 75);
+}
+
+/* 餐厅正在加载样式 */
+.loading-restaurant-list {
+	position: relative; 
+	width : 100px;
+	height: 40px;
+	margin: 0 auto;
+}
+.loading-restaurant-list img {
+	width: 100px;
+	height: 20px;
+}
+
+.loading-restaurant-list p {
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+}
+
+/* 搜索不到餐厅时的提示信息   */
+.empty-content-tip{
+	margin-top: 200px;
+	text-align: center;
+	font-size: 16px;
+}
+.empty-content-tip a{
+	color: rgb(245, 45, 75);
+}
+
+/* 餐厅详细信息样式 */
+.restaurant-detail {
+	width: 980px;
+	height: 120px;
+}
+.rest-img {
+	width: 230px;
+	height: 120px;
+	float: left;
+}
+.detail-part1 {
+	width: 280px;
+	height: 120px;
+	float: left;
+}
+.detail-part1 p {
+	padding: 6px 10px;
+}
+.part1-rest-name {
+	font-size: 22px;
+}
+.detail-part2 {
+	width: 470px;
+	height: 120px;
+	float: left;
+}
+.part2-item {
+	width: 110px;
+	height: 70px;
+	margin-top: 25px;
+	border-right: solid 1px #ccc;
+	float: left;
+}
+.part2-item-name {
+	text-align: center;
+}
+.part2-item-value {
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 22px;
+	color: red;
+}
+.favorite-icon {
+	width: 136px;
+	height: 70px;
+	margin-top: 25px;
+	float: left;
+}
+.favorite-icon a {
+	width: 21px;
+	height: 21px;
+	display: block;
+	margin: 12px auto;
+}
+.favorite-icon a.collect{
+	background: url("../img/favorite.png") 0 3px no-repeat;
+}
+.favorite-icon a.discollect{
+	background: url("../img/favorite.png") 0 3px no-repeat;
+	background-position: 0 -19px;
+}
+.favorite-icon p {
+	text-align: center;
+}
+
+/* “菜单”、“评价” 切换卡 */
+.switch-tab {
+	width: 100%;
+	height: 50px;
+	background-color: rgb(225, 225, 225);
+}
+.switch-tab a.tab-item {
+	display: block;
+	width: 115px;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	color: #000;
+	text-align: center;
+}
+.switch-tab a.tab-item:hover {
+	color: rgb(245, 45, 75);
+}
+.switch-tab a.active {
+	background-color: #fff;
+}
+
+/* 菜单列表 */
+.rest-menu {
+	width: 700px;
+	height: auto;
+	padding-bottom: 20px;
+}
+.menu-item {
+	width: 320px;
+	height: 120px;
+	margin-left: 20px;
+	margin-top: 20px;
+	display: inline-block;
+	border: solid 1px #fff;
+}
+.menu-item:hover{
+	border: solid 1px rgb(245,45,75);
+}
+.menu-item-img {
+	width: 120px;
+	height: 120px;
+	float: left;
+}
+.menu-item-right {
+	position: relative; width : 200px;
+	height: 120px;
+	float: left;
+	background-color: rgb(240, 240, 240);
+	width: 200px;
+}
+.food-name {
+	width: 190px;
+	line-height: 20px; font-size : 16px;
+	padding: 10px 0 0 10px;
+	font-size: 16px;
+}
+.sale-info {
+	padding: 10px 0 0 10px;
+	color: #666;
+}
+.food-price {
+	position: absolute;
+	color: rgb(245, 45, 75);
+	font-size: 16px;
+	font-weight: bolder;
+	left: 10px;
+	bottom: 10px;
+}
+.shop-tool {
+	position: absolute; width : 90px;
+	height: 26px;
+	right: 10px;
+	bottom: 5px;
+	width: 90px;
+}
+.cut-btn, .add-btn {
+	width: 26px;
+	height: 26px;
+	display: inline-block;
+	float: right;
+	background: url("../img/shoptool.png") no-repeat;
+}
+.cut-btn {
+	background-position: -4px -108px;
+}
+.add-btn {
+	background-position: -4px -72px;
+}
+.food-num {
+	width: 32px;
+	height: 26px;
+	line-height: 26px; 
+	display : block;
+	float: right;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 14px;
+	color: rgb(245, 45, 75);
+	display: block;
+}
+
+/* 购物车 */
+.cart{
+	width: 280px;
+	height: auto;
+	position: fixed;
+	bottom: 0;
+	box-shadow: 0 -1px 10px 2px #e4e4e4;
+}
+.cart-header{
+	width: 280px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #e1e1e1;
+}
+.cart-header-title{
+	padding-left: 10px;
+	font-size: 14px;
+}
+.cart-clear-btn{
+	float: right;
+	margin-right: 10px;
+	color: #000;
+}
+.cart-clear-btn:hover{
+	color: #ef2d4b;
+}
+.cart-panel{
+	width: 280px;
+	max-height: 220px;
+	overflow-y: auto;
+}
+.cart-panel table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.item-title{
+	display: table-header-group;
+	vertical-align: middle;
+	color: #aaa;
+	background-color: #fff;
+}
+.t-name{
+	width: 140px;
+	text-align: left;
+	padding-left: 10px;
+}
+.t-count{
+	width: 65px;
+	padding: 8px 0;
+	text-align: center;
+}
+.t-price{
+	width: 50px;
+	text-align: center;
+}
+.t-delete{
+	width: 18px;
+	text-align: center;
+}
+.cart-item-list{
+	display: table-row-group;
+	vertical-align: middle;
+}
+.normal-item{
+	border-top: solid 1px #ddd;
+	background-color: #fff;
+	font-size: 12px;
+}
+.normal-item:hover{
+	background-color: #f8f8f8;
+}
+.t-count-value{
+	width: 22px;
+	float: left;
+}
+.t-mins, .t-plus{
+	width: 18px;
+	height: 18px;
+	float: left;
+	background-image: url("../img/shopcar.png");
+}
+.t-mins{
+	background-position: -7px -26px;
+}
+.t-plus{
+	background-position: -7px -54px;
+}
+.delete-icon{
+	width: 13px;
+	height: 13px;
+	display: block;
+	background: url("../img/clear.png");
+	background-size: 100% 100%;
+}
+.cart-bar {
+	width: 280px;
+	height: 40px;
+	line-height: 40px;
+	background-color: rgb(245,45,75);
+}
+.cart-logo {
+	width: 35px;
+	height: 38px;
+	float: left;
+	background-image: url("../img/shopcar.png");
+	background-position: 0px -74px;
+	margin: 2px 0 0 15px;
+	background-repeat: no-repeat;
+}
+.cart-amount, .place-order, .price-tip{
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+}
+.cart-amount{
+	width: 100px;
+	float: left;
+}
+.place-order{
+	width: 70px;
+	float: right;
+	font-weight: bolder;
+	border-left: solid 1px rgb(220,20,50);
+	cursor: pointer;
+}
+.price-tip{
+	width: 100px;
+	background-color: #787878;
+	float: right;
+	cursor: default;
+}
+
+/* 评价列表   */
+.estimate-list{
+	width: 980px;
+	height: auto;
+	padding-bottom: 20px;
+}
+.estimate-item-wrap{
+	width: 900px;
+	min-height: 40px;
+	margin: 20px 20px 0 20px;
+	padding: 0 20px 20px 20px;
+	border-bottom: solid 1px #ccc;
+}
+.estimate-header{
+	width: 940px;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+.estimate-username{
+	float: left;
+}
+.estimate-time{
+	float: right;
+	display: inline-block;
+	margin-right: 40px;
+	color: gray;
+}
+.estimate-content{
+	line-height: 20px;
+	font-size: 14px;
+	text-indent: 28px;
+}
+.empty-estimation-tip{
+	margin-top: 50px;
+}
+/* 确认订单页面购物车列表  */
+.dish-detail-wrap{
+	width: 320px;
+	height: auto;
+	padding: 20px 20px 100px 20px;
+	position: relative;
+	float: left;
+	background: url("../img/cart_bottom_bg.png") 0 bottom repeat-x;
+	box-shadow: 0 -2px 4px 0 #e4e4e4;
+	border: solid 1px #ccc;
+	border-bottom-width: 0;
+	margin: 20px 0 0 20px;
+}
+.dish-detail-wrap .title{
+	line-height: 30px;
+	text-align: right;
+}
+.dish-detail-wrap .title i{
+	display: inline-block;
+	width: 18px;
+	height: 20px;
+	position: relative;
+	top: 5px;
+	background: url("../img/cart_back.png") no-repeat;
+}
+.dish-detail-wrap .title a{
+	color: #000;
+	font-size: 14px;
+}
+.dish-detail-wrap .title a:hover{
+	color: #ef2d4b;
+}
+.detail-panel{
+	margin-top: 20px;
+}
+.detail-panel .detail-title{
+	font-size: 12px;
+	color: #999;
+}
+.dt-name{
+	width: 140px;
+	text-align: left;
+}
+.dt-price, .dt-count, .dt-amount{
+	width: 60px;
+	text-align: center;
+}
+.detail-title th{
+	height: 30px;
+	vertical-align: middel;
+	border-bottom: solid 1px #999;
+}
+.orderItemList tr td{
+	height: 40px;
+	vertical-align: middle;
+	font-size: 12px;
+	border-bottom: solid 1px #999;
+}
+
+.detail-amount{
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+}
+.amount-txt{
+	
+}
+.amount-value{
+	font-size: 20px;
+	color: rgb(245,45,75);
+	font-weight: bolder;
+}
+
+/* 确认订单页面地址选择内容 */
+.order-right-wrap{
+	width: 560px;
+	height: auto;
+	position: relative;
+	float: left;
+	margin-left: 20px;
+	padding-bottom: 20px;
+}
+.right-header{
+	margin: 20px 20px 0 20px;
+	font-size: 14px;
+	line-height: 40px;
+	border-bottom: solid 1px #ccc;
+}
+.add-addr-btn{
+	float: right;
+	color: rgb(255,45,75);
+}
+.add-addr-btn:hover{
+	color: #000;
+}
+.addr-list{
+	width: 560px;
+	height: auto;
+	position: relative;
+	float: left;
+	padding-bottom: 20px;
+}
+.addr-wrap, .addr-add{
+	width: 230px;
+	height: 140px;
+	float: left;
+	border: solid 1px #ccc;
+	margin: 20px 0 0 20px;
+	padding: 0 10px 0 10px;
+	font-size: 14px;
+	position: relative;
+	cursor: pointer;
+}
+.addr-add{
+	background: url("../img/add.png") no-repeat center 40px;
+	text-align: center;
+	cursor: pointer;
+}
+.addr-add p{
+	margin-top: 74px;
+}
+.addr-add:hover{
+	border-color: rgb(255,45,75);
+	color: rgb(255,45,75);
+}
+.addr-selected, .addr-wrap:hover{
+	border-color: rgb(255,45,75);
+}
+.addr-name{
+	width: 230px;
+	line-height: 30px;
+	border-bottom: solid 1px #ccc;
+}
+.addr-tel{
+	line-height: 30px;
+}
+.addr-info{
+	line-height: 22px;
+}
+.addr-selected-icon{
+	width: 25px;
+	height: 24px;
+	background: url("../img/addr_select_tag.png") no-repeat;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+/* 新增地址弹出框   */
+.addr-popbox{
+	width: 560px;
+	height: 380px;
+	margin: 100px auto;
+	padding: 20px;
+	background: #fff;
+}
+.input-control{
+	width: 520px;
+	height: 60px;
+	margin: 20px 0 0 30px;
+	font-size: 14px;
+}
+.input-title{
+	width: 80px;
+	line-height: 40px;
+	float: left;
+}
+.input-txt{
+	width: 412px;
+	height: 40px;
+	float: left;
+	padding-left: 10px;
+	outline: none;
+}
+.input-txt:focus{
+	
+}
+.input-control .tip-msg{
+	float: left;
+	margin-left: 80px;
+	font-size: 10px;
+	padding-top: 4px;
+	color: red;
+}
+.input-group{
+	margin-top: 20px;
+	text-align: center;
+}
+.save-btn, .cancle-btn{
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	text-align: center;
+	zoom: 1;
+	border-radius: 2px;
+	font-size: 1.2em;
+	background-color: #ff2d4b;
+	cursor: pointer;
+	margin: 0 20px;
+	color: #fff;
+}
+.save-btn:hover{
+	background-color: #ff0d4b;
+}
+.cancle-btn{
+	background-color: #666666;
+}
+.cancle-btn:hover{
+	background-color: #555555;
+}
+
+/* 新增地址页面样式 */
+.addr-input-wrap{
+	margin-top: 20px;
+}
+.addr-input-wrap .input-control{
+	margin-top: 10px;
+}
+.addr-input-wrap .input-group{
+	margin-top: 10px;
+	text-align: left;
+	margin-left: 90px;
+}
+
+/** 选择支付方式 **/
+.pay-select-wrap{
+	width: 560px;
+	height: auto;
+	position: relative;
+	float: left;
+	margin-top: 20px;
+}
+.pay-header{
+	width: 520px;
+	height: 30px;
+	margin: 0 0 0 20px;
+	font-size: 14px;
+	line-height: 30px;
+}
+.pay-select{
+	width: 520px;
+	height: auto;
+	margin: 20px;
+	border-top: solid 1px #ccc;
+}
+.pay-select .pay-item{
+	width: 480px;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 40px;
+	border: solid 1px #ccc;
+	border-top-width: 0;
+	cursor: pointer;
+	position: relative;
+}
+.pay-select .pay-item:hover{
+	background-color: #efefef;
+}
+.pay-select .selected-item{
+	background-color: #efefef;
+	border-left-color: rgb(255,45,75);
+}
+
+.do-order{
+	position: relative;
+	width: 540px;
+	text-align: right;
+	float: left;
+}
+.confirm-order-btn{
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	text-align: center;
+	zoom: 1;
+	border-radius: 2px;
+	font-size: 1.2em;
+	background-color: #ff2d4b;
+	cursor: pointer;
+	color: #fff;
+}
+.confirm-order-btn:hover{
+	background-color: #ff0040;
+}
+.disabled-btn, .disabled-btn:hover{
+	background-color: #8f8f8f;
+	cursor: default;
+}
+
+/* 订单成功页面 */
+.order-success-wrap{
+	width: 980px;
+	height: 200px;
+	margin-top: 20px;
+}
+.running-gif{
+	width: 200px;
+	height: 200px;
+	margin-left: 390px;
+}
+.success-text-tip{
+	font-size: 26px;
+	color: red;
+	text-align: center;
+}
+.success-tip-header{
+	margin-left: 320px;
+	font-size: 18px;
+	margin-top: 50px;
+}
+ul.success-tip{
+	margin-left: 380px;
+	list-style-type: decimal;
+}
+ul.success-tip li{
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+}
+ul.success-tip .important{
+	color: red;
+	padding: 0 4px;
+}
+.myitem_button input {
+	width: 80px;
+	height: 40px;
+	line-height: 30px;
+	text-align: center;
+	background-color: #DDDDDD;
+}

@@ -1,0 +1,440 @@
+/* 餐厅选择内容区样式 */
+.a_red {
+	color:#0A0A0A;
+}
+
+.foot_bottom{
+	position:absolute;
+	padding-top:20px;
+	  top:20px;
+	  right:150px;
+	  color:#0F0F0F;
+	  font-size:15px;
+	 
+}
+
+.al_center{
+	padding-top：20px;
+	text-align:center;
+}
+.al_three{
+	width:25%;
+	float:left;
+}
+.container {
+	background-color:#BFEFFF;
+	color:#1E1E1E;
+	font-size:15px;
+}
+.selector-wrap {
+	width: 100%;
+	height: 50px;
+	
+}
+ul.restaurant-classify {
+	float: left;
+	width: auto;
+	height: 50px;
+	list-style-type: none;
+}
+ul.restaurant-classify li {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 16px;
+	float: left;
+}
+ul.restaurant-classify li.active {
+	
+}
+ul.restaurant-classify li a {
+	color: #000;
+}
+ul.restaurant-classify li a:hover {
+	color: rgb(245, 45, 75);
+}
+.re-img {
+	height:25%;
+	width:auto;
+}
+/* 餐厅列表样式 */
+.restaurant-list {
+	width: 980px;
+	height: auto;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+.restaurant-wrap {
+	display: inline-block;
+	width: 230px;
+	height: 18%;
+	margin: 10px 0 0 10px;
+	border: solid 1px #fff;
+}
+.restaurant-wrap:hover{
+	border: solid 1px #ef2d4b;
+}
+.restaurant-img {
+	width: 100%;
+	height: 160px;
+}
+.manage-top {
+	
+	width:20%;
+	height:10%;
+	float:left;
+}
+.manage-list {
+	background-color: #BFEFFF;
+	color:#EE30A7;
+	width:20%;
+	height:10%;
+	float:left;
+}
+.restaurant-info {
+	width: 220px;
+	height: 100px;
+	padding-left: 10px;
+	
+}
+.restaurant-info span {
+	padding: 0 10px 0 0;
+}
+.rest-name {
+	width: auto;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	font-size: 18px;
+	color: #000;
+}
+.rest-name:hover {
+	color: rgb(245, 45, 75);
+}
+
+/* 餐厅正在加载样式 */
+.loading-restaurant-list {
+	position: relative; width : 100px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 100px;
+}
+.loading-restaurant-list img {
+	width: 100px;
+	height: 20px;
+}
+
+.loading-restaurant-list p {
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+}
+
+/* 餐厅详细信息样式 */
+.restaurant-detail {
+	width: 980px;
+	height: 120px;
+}
+.rest-img {
+	width: 230px;
+	height: 120px;
+	float: left;
+}
+.detail-part1 {
+	width: 280px;
+	height: 120px;
+	float: left;
+}
+.detail-part1 p {
+	padding: 6px 10px;
+}
+.part1-rest-name {
+	font-size: 22px;
+}
+.detail-part2 {
+	width: 470px;
+	height: 120px;
+	float: left;
+}
+.part2-item {
+	width: 110px;
+	height: 70px;
+	margin-top: 25px;
+	border-right: solid 1px #ccc;
+	float: left;
+}
+.part2-item-name {
+	text-align: center;
+}
+.part2-item-value {
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 22px;
+	color: red;
+}
+.favorite-icon {
+	width: 136px;
+	height: 70px;
+	margin-top: 25px;
+	float: left;
+}
+.favorite-icon a {
+	background: url("../img/favorite.png") 0 3px no-repeat;
+	width: 21px;
+	height: 21px;
+	display: block;
+	margin: 12px auto;
+}
+.favorite-icon p {
+	text-align: center;
+}
+
+/* “菜单”、“评价” 切换卡 */
+.switch-tab {
+	width: 100%;
+	height: 50px;
+	
+}
+.switch-tab a.tab-item {
+	display: block;
+	width: 115px;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	text-align: center;
+	color: #000;
+}
+.switch-tab a.tab-item:hover {
+	color: rgb(245, 45, 75);
+}
+.switch-tab a.active {
+	
+}
+
+/* 菜单列表 */
+.rest-menu {
+	width: 700px;
+	height: auto;
+	padding-bottom: 20px;
+}
+.menu-item {
+	width: 320px;
+	height: 120px;
+	margin-left: 20px;
+	margin-top: 20px;
+	display: inline-block;
+	border: solid 1px #fff;
+}
+.menu-item:hover{
+	border: solid 1px rgb(245,45,75);
+}
+.menu-item-img {
+	width: 120px;
+	height: 120px;
+	float: left;
+}
+.menu-item-right {
+	position: relative; width : 200px;
+	height: 120px;
+	float: left;
+	
+	width: 200px;
+}
+.food-name {
+	width: 190px;
+	line-height: 20px; font-size : 16px;
+	padding: 10px 0 0 10px;
+	font-size: 16px;
+}
+.sale-info {
+	padding: 10px 0 0 10px;
+	color: #666;
+}
+.food-price {
+	position: absolute;
+	color: rgb(245, 45, 75);
+	font-size: 16px;
+	font-weight: bolder;
+	left: 10px;
+	bottom: 10px;
+}
+.shop-tool {
+	position: absolute; width : 90px;
+	height: 26px;
+	right: 10px;
+	bottom: 5px;
+	width: 90px;
+}
+.cut-btn, .add-btn {
+	width: 26px;
+	height: 26px;
+	display: inline-block;
+	float: right;
+	background: url("../img/shoptool.png") no-repeat;
+}
+.cut-btn {
+	background-position: -4px -108px;
+}
+.add-btn {
+	background-position: -4px -72px;
+}
+.food-num {
+	width: 32px;
+	height: 26px;
+	line-height: 26px; display : block;
+	float: right;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 14px;
+	color: rgb(245, 45, 75);
+	display: block;
+}
+
+/* 购物车 */
+.cart{
+	width: 280px;
+	height: auto;
+	position: fixed;
+	bottom: 0;
+	box-shadow: 0 -1px 10px 2px #e4e4e4;
+}
+.cart-header{
+	width: 280px;
+	height: 40px;
+	line-height: 40px;
+	
+}
+.cart-header-title{
+	padding-left: 10px;
+	font-size: 14px;
+}
+.cart-clear-btn{
+	float: right;
+	margin-right: 10px;
+	color: #000;
+}
+.cart-clear-btn:hover{
+	color: #ef2d4b;
+}
+.cart-panel{
+	width: 280px;
+	max-height: 220px;
+	overflow-y: auto;
+}
+.cart-panel table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.item-title{
+	display: table-header-group;
+	vertical-align: middle;
+	color: #aaa;
+	
+}
+.t-name{
+	width: 140px;
+	text-align: left;
+	padding-left: 10px;
+}
+.t-count{
+	width: 65px;
+	padding: 8px 0;
+	text-align: center;
+}
+.t-price{
+	width: 50px;
+	text-align: center;
+}
+.t-delete{
+	width: 18px;
+	text-align: center;
+}
+.cart-item-list{
+	display: table-row-group;
+	vertical-align: middle;
+}
+.normal-item{
+	border-top: solid 1px #ddd;
+	
+}
+.normal-item:hover{
+	
+}
+.t-count-value{
+	width: 22px;
+	float: left;
+}
+.t-mins, .t-plus{
+	width: 18px;
+	height: 18px;
+	float: left;
+	background-image: url("../img/shopcar.png");
+}
+.t-mins{
+	background-position: -7px -26px;
+}
+.t-plus{
+	background-position: -7px -54px;
+}
+.delete-icon{
+	width: 13px;
+	height: 13px;
+	display: block;
+	background: url("../img/clear.png");
+	background-size: 100% 100%;
+}
+.cart-bar {
+	width: 280px;
+	height: 40px;
+	line-height: 40px;
+	
+}
+.cart-logo {
+	width: 35px;
+	height: 38px;
+	float: left;
+	background-image: url("../img/shopcar.png");
+	background-position: 0px -74px;
+	margin: 2px 0 0 15px;
+	background-repeat: no-repeat;
+}
+.cart-amount, .place-order, .price-tip{
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+}
+.cart-amount{
+	width: 100px;
+	float: left;
+}
+.place-order{
+	width: 70px;
+	float: right;
+	font-weight: bolder;
+	border-left: solid 1px rgb(220,20,50);
+	cursor: pointer;
+}
+.price-tip{
+	width: 100px;
+	
+	float: right;
+	cursor: default;
+}
+
+#searchName{
+	width: 210px;
+	padding-left: 10px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 5px;
+	border: 0;
+	outline: none;
+	float: left;
+}

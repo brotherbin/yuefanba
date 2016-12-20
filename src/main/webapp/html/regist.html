@@ -1,0 +1,82 @@
+<!DOCTYPE html">
+<html lang="zh-cn">
+<head>
+<title>登录 | 约饭吧</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="stylesheet" style="text/css" href="../css/reset.css">
+<link rel="stylesheet" style="text/css" href="../css/common.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+<link href="../css/mylogin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/regist.js"></script>
+</head>
+<body>
+	<div class="content">
+		<!--Logo-->
+		<div class="login-logo">
+			<a href="index.html"> <img src="../img/logo.png" title="约饭吧"
+				class="login-logo-img" /></a> <a class="to_home" href="index.html">首页</a>
+		</div>
+		<hr class="login-hr" />
+		<div class="login-div-content">
+			<div class="login-saying-pic">
+				<img src="../img/loginico.jpg" />
+			</div>
+
+			<!-- start注册框 -->
+			<div class="login-box">
+				<div class="login_box_blank1">
+					<span>用户注册</span> <span class="to-login">已有账号，去<a
+						href="login.html">登录</a></span>
+				</div>
+				<div class="login_right">
+					<div class="resgist_registbox">
+						<table class="regist_table">
+							<tr>
+								<td class="regist_td">用户名:</td>
+								<td><input type="text" id="username" name="username"
+									placeHolder="请输入用户名" class="regist_input_uname" maxlength="12"
+									onkeypress="checkName(this)" /></td>
+							<tr>
+								<td>密码:</td>
+								<td><input type="password" name="newpwd" id="newpwd"
+									placeHolder="请输入密码" class="regist_input_pwd" maxlength="16"
+									onkeypress="checkPassword(this)" /></td>
+							</tr>
+							<tr>
+								<td>确认密码:</td>
+								<td><input type="password" name="repwd" id="repwd"
+									placeHolder="请确认密码" class="regist_input_repwd" maxlength="16"
+									onkeypress="checkRePassword(this)" /></td>
+							</tr>
+
+							<tr>
+								<td>注册类型</td>
+								<td><select class="regist_input_utype" id="usertype">
+										<option value="0" selected="selected">用户</option>
+										<option value="1">商家</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td>验证码:</td>
+								<td><input type="text" name="txtvali" id="txtvali"
+									class="regist_validate" /> <img src="../regist/validateImg"
+									onclick="this.src='../regist/validateImg?rnd=' + Math.random();"
+									class="regist_validateimg" /></td>
+							</tr>
+						</table>
+						<div class="regist_box_regist">
+							<input type="button" id="userRegister" value="注册"
+								onclick="regist();" class="regist_input_regist" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end注册 -->
+		</div>
+	</div>
+</body>
+</html>

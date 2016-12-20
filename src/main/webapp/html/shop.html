@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/main.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/userCommon.js"></script>
+<script type="text/javascript" src="../js/cart.js"></script>
+<script type="text/javascript" src="../js/shop.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<!-- start 页面头部 -->
+	<div class="header">
+		<div class="header-content">
+			<!-- start LOGO -->
+			<div class="brand-logo">约饭吧</div>
+			<!-- end LOGO -->
+
+			<div class="user-op">
+				<div id="notLogin">
+					<a class="nav-login" href="login.html">登录</a>|
+					<a class="nav-regist" href="regist.html">注册</a>
+				</div>
+				<div id="login" class="hide">
+					<p class="username" id="userName"></p>
+					<div id="userDrop" class="user-drop-wrap hide">
+						<div class="triangle-up"></div>
+						<ul class="user-drop-list">
+							<li><a href="myOrder.html">我的订单</a></li>
+							<li><a href="address.html">地址管理</a></li>
+							<li><a href="javascript:;" onclick="logout()">退出</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="top-nav">
+				<li><a class="nav-item" href="index.html">首页</a></li>
+				<li><a class="nav-item" href="myOrder.html">我的订单</a></li>
+				<li><a class="nav-item" href="address.html">个人中心</a></li>
+				<li><a class="nav-item" href="collection.html">我的收藏</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end 页面头部 -->
+
+	<!-- start 页面内容 -->
+	<div class="container">
+		<div class="main-content">
+			<!-- 餐厅分类及搜索 -->
+			<div class="selector-wrap">
+				<div class="curr-location">
+					<span>当前位置:</span>&nbsp;&nbsp;<a class="home" href="index.html">首页</a>&nbsp;&gt;&nbsp;<span id="locShopName"></span>
+				</div>
+				<div class="search-box">
+					<input type="text" id="searchText" placeHolder="搜索餐厅或菜品"> 
+					<a class="search-btn" href="javascript:;" onclick="searchRestaurant()">搜索</a>
+				</div>
+			</div>
+			<div class="restaurant-detail">
+				<img id="shopImg" class="rest-img" src="">
+				<div class="detail-part1">
+					<p id="shopName" class="part1-rest-name"></p>
+					<p>营业时间：<span id="startTime"></span>-<span id="endTime"></span></p>
+					<p>营业日期：周一至周日</p>
+					<p>餐厅地址：<span id="shopAddr"></span></p>
+				</div>
+				<div class="detail-part2">
+					<div class="part2-item">
+						<p class="part2-item-value"><span id="sendTime"></span>分钟</p>
+						<p class="part2-item-name">平均送达时间</p>
+					</div>
+					<div class="part2-item">
+						<p class="part2-item-value">&yen;<span id="shopStartPrice"></span></p>
+						<p class="part2-item-name">起送价</p>
+					</div>
+					<div class="part2-item">
+						<p class="part2-item-value">&yen;<span id="shopSendAdd"></span></p>
+						<p class="part2-item-name">配送费</p>
+					</div>
+					<div class="favorite-icon" id="favoriteIcon">
+						<a href="javascript:;" class="collect" data-isCollected="" onclick="collect(this)"></a>
+						<p>未收藏</p>
+					</div>
+				</div>
+			</div>
+			<div class="switch-tab">
+				<a id="tabMenu" class="tab-item active" href="javascript:;" onclick="showFoodMenu();">菜单</a> 
+				<a id="tabEstimate" class="tab-item"	href="javascript:;" onclick="showEstimation();">评价</a>
+			</div>
+			<div id="restMenu" class="rest-menu"></div>
+			<script id="restMenuTmpl" type="text/x-jquery-tmpl">
+				<div class="menu-item">
+					<img class="menu-item-img" src="{{= foodImg}}">
+					<div class="menu-item-right">
+						<p class="food-name">{{= foodName}}</p>
+						<div class="sale-info">已售{{= buyNum}}份</div>
+						<div class="food-price">&yen;{{= foodPrice}}</div>
+						<div class="shop-tool">
+							<a class="add-btn" href="javascript:;" data-foodId="{{= foodId}}" data-foodName="{{= foodName}}" data-foodPrice="{{= foodPrice}}" onclick="addToCart(this)"></a>
+						</div>
+					</div>
+				</div>
+			</script>
+			<div id="estimateList" class="estimate-list hide"></div>
+			<script id="estimateTmpl" type="text/x-jquery-tmpl">
+				<div class="estimate-item-wrap">
+					<p class="estimate-header">
+						<span class="estimate-username">{{= username}}：</span>
+						<span class="estimate-time">{{= estimateTime}}</span>
+					<p>
+					<p class="estimate-content">{{= estimateInfo}}</p>
+				</div>
+			</script>
+			<div id="loadingRestList" class="loading-restaurant-list hide">
+				<img src="../img/loading01.gif">
+				<p>正在加载</p>
+			</div>
+			<p id="emptyEstimationTip" class="empty-content-tip empty-estimation-tip hide">
+				<span>还没有评价哦，</span>
+				<a href="javascript:;" onclick="showFoodMenu()">去下单评价</a>
+			</p>
+		</div>
+	</div>
+	<!-- begin 购物车 -->
+	<div class="cart" id="cart">
+		<div class="cart-header hide" id="cartHeader">
+			<span class="cart-header-title">购物车</span> 
+			<a class="cart-clear-btn" href="javascript:;" onclick="clearCart();">清空</a>
+		</div>
+		<div class="cart-panel hide" id="cartPanel">
+			<table>
+				<thead class="item-title">
+					<tr>
+						<th class="t-name">菜品</th>
+						<th class="t-count">份数</th>
+						<th class="t-price">单价</th>
+						<th class="t-delete">&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody id="cartItemList" class="cart-item-list">
+					
+				</tbody>
+			</table>
+			<script id="cartItemTmpl" type="text/x-jquery-tmpl">
+				<tr class="normal-item" onmouseover="cartItemFocus(this)" onmouseout="cartItemOut(this)">
+					<td class="t-name">{{= foodName}}</td>
+					<td class="t-count">
+						<a class="t-mins" data-foodId="{{= foodId}}" href="javascript:;" onclick="cutFoodCount(this)"></a>
+						<span class="t-count-value">{{= foodCount}}</span>
+						<a class="t-plus" data-foodId="{{= foodId}}" href="javascript:;" onclick="addFoodCount(this)"></a>
+					</td>
+					<td class="t-price">&yen;{{= foodPrice}}</td>
+					<td class="t-delete">
+						<a class="delete-icon" data-foodId="{{= foodId}}" style="display: none;" href="javascript:;" onclick="removeCartItem(this)"></a>
+					</td>
+				</tr>
+			</script>
+			<script id="cartSendAddTmpl" type="text/html" >
+				<tr class="normal-item">
+					<td class="t-name">配送费</td>
+					<td class="t-count">&nbsp;</td>
+					<td class="t-price">&yen;<span id="sendAddTd"></span></td>
+					<td class="t-delete"></td>
+				</tr>
+			</script>
+		</div>
+		<div class="cart-bar">
+			<div class="cart-logo"></div>
+			<div class="cart-amount" id="cartEmptyTip">购物车是空的</div>
+			<div class="cart-amount hide" id="cartAmount">共&nbsp;&yen;<span id="cartAmountValue"></span>&nbsp;元</div>
+			<a class="place-order hide" id="cartOrderBtn" href="">去下单</a>
+			<div class="price-tip hide" id="cartLackingTip">差&nbsp;&yen;<span id="lackingPrice"></span>&nbsp;元起送</div>
+		</div>
+	</div>
+	<!-- end 购物车 -->
+	<!-- end 页面内容 -->
+
+	<!-- start 页面底部 -->
+	<div class="footer"></div>
+	<!-- start 页面底部 -->
+</body>
+</html>

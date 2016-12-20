@@ -1,0 +1,220 @@
+
+<!DOCTYPE html">
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<link rel="stylesheet" style="text/css" href="../css/reset.css">
+<link rel="stylesheet" style="text/css" href="../css/common.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+
+<script type="text/javascript" src="../js/shopMessage.js"></script>
+<script type="text/javascript" src="../js/setTime.js"></script>
+<title>约饭吧</title>
+</head>
+<body>
+	<!-- start 页面头部 -->
+	<div class="header">
+		<div class="header-content">
+			<!-- start LOGO -->
+			<div class="brand-logo">约饭吧</div>
+			<!-- end LOGO -->
+
+			<div class="user-op">
+				<div id="notLogin" class="hide">
+					<a class="nav-login" href="login">登录</a>| <a class="nav-regist"
+						href="regist">注册</a>
+				</div>
+				<div id="login" class="">
+					<p class="username" id="userName"></p>
+					<div id="userDrop" class="user-drop-wrap hide">
+						<div class="triangle-up"></div>
+						<ul class="user-drop-list">
+							<!-- <li><a href="">信息管理</a></li>
+							<li><a href="">菜品管理</a></li>
+							<li><a href="">收支查询</a></li> -->
+							<li><a href="javascript:;" onclick="logout()">退出</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="top-nav">
+				<li>
+				<li><a class="nav-item" href="shopInfo.html">订单管理</a></li>
+
+
+				<li class="active"><a class="nav-item" href="shopMessage.html">餐厅信息</a></li>
+				<li><a class="nav-item" href="foodManager.html">菜品管理</a></li>
+				<!-- <li><a class="nav-item" href="shopManager/incomeQuery">收支查询</a></li> -->
+			</ul>
+		</div>
+	</div>
+	<!-- end 页面头部 -->
+
+	<!-- start 页面内容 -->
+	<div class="container">
+		<div class="main-content">
+			<!-- 餐厅分类及搜索 -->
+			<div class="selector-wrap">
+				<ul class="restaurant-classify">
+					<li class="active"><a href="shopMessage.html">餐厅信息</a></li>
+					<!-- <li><a href="">信息修改</a></li> -->
+
+
+				</ul>
+				<!-- <div class="search-box">
+					<input type="text" id="searchText" placeHolder="搜索餐厅或菜品"> <a
+						class="search-btn" href="">搜索</a>
+				</div> -->
+			</div>
+
+			<!-- 餐厅列表 -->
+			<!--<div id="shopInfo" ></div>
+			<script id="shopTmpl" type="text/x-jquery-tmpl"> -->
+
+			<div class="myitem_button">
+				<input type="button" value="编辑" name="modify" id="modify"
+					onClick="readonlychange()" />
+			</div>
+			<!-- form   进行商家信息表单提交 -->
+			<form id="shopInfo" name="shopInfo" method="post"
+				enctype="multipart/form-data">
+				<input type="hidden" id="shopId" name="shopId" class="w1"
+					placeholder="请填写店铺编号" /> <input type="hidden" id="userId"
+					name="userId" class="w1" placeholder="请填写店主编号" /> <input
+					type="hidden" readonly="readonly" id="shopState" name="shopState"
+					class="w1" placeholder="请填写餐厅状态" value="${shopState }" />
+				<table>
+
+					<tr>
+						<td><span>店主姓名<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="text" onblur="hostname_()"
+							readonly="readonly" id="hostName" name="hostName" class="w1"
+							placeholder="请填写店主姓名" /></td>
+						<td><span>店主身份证号<label style="color: red;"> *
+							</label>
+						</span></td>
+						<td><input type="text" onblur="hostCard_()"
+							readonly="readonly" id="hostCard" name="hostCard" class="w1"
+							placeholder="请填写店主身份证号" /></td>
+					</tr>
+
+					<tr>
+						<td><span>店名<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="text" onblur="shopName_()"
+							readonly="readonly" id="shopName" name="shopName" class="w1"
+							placeholder="请填写店名" /></td>
+						<td><span>店铺地址<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="text" onblur="shopAddr_()"
+							readonly="readonly" id="shopAddr" name="shopAddr" class="w1"
+							placeholder="请填写店铺地址" /></td>
+					</tr>
+					<tr>
+						<td><span>联系方式<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="text" onblur="shopTel_()"
+							readonly="readonly" id="shopTel" name="shopTel" class="w1"
+							placeholder="请填写联系方式" /></td>
+						<td><span>店铺公告<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="text" onblur="shopNotice_()"
+							readonly="readonly" id="shopNotice" name="shopNotice" class="w1"
+							placeholder="请填写店铺公告" /></td>
+					</tr>
+					<tr>
+						<td><span>起送价<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="text" onblur="startPrice_()"
+							readonly="readonly" id="startPrice" name="startPrice" class="w1"
+							placeholder="请填写起送价" /></td>
+						<td><span>配送费<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="text" onblur="sendAdd_()"
+							readonly="readonly" id="sendAdd" name="sendAdd" class="w1"
+							placeholder="请填写配送费" /></td>
+					</tr>
+					<tr>
+
+
+						<td><span>配送时间<label style="color: red;"> * </label>
+						</span></td>
+						<td><select name="sendTime" id="sendTime">
+								<option value="0">请选择</option>
+								<option value="10">10分钟</option>
+								<option value="20">20分钟</option>
+								<option value="30">30分钟</option>
+								<option value="40">40分钟</option>
+								<option value="60">60分钟</option>
+						</select></td>
+						<td><span>店铺类型<label style="color: red;"> * </label>
+						</span></td>
+						<td><select name="shopType" id="shopType">
+								<option value="null">请选择</option>
+								<option value="中餐">中餐</option>
+								<option value="西餐">西餐</option>
+								<option value="早茶">早茶</option>
+								<option value="烧烤">烧烤</option>
+								<option value="其他">其他</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><span>营业开始时间<label style="color: red;"> *
+							</label>
+						</span></td>
+						<td><select name="startTime" id="startTime">
+								<option value="00:00:00">请选择</option>
+								<option value="06:00:00">6点</option>
+								<option value="07:00:00">7点</option>
+								<option value="08:00:00">8点</option>
+								<option value="09:00:00">9点</option>
+								<option value="10:00:00">10点</option>
+						</select></td>
+						<td><span>营业结束时间<label style="color: red;"> *
+							</label>
+						</span></td>
+						<td><select name="endTime" id="endTime">
+								<option value="00:00:00">请选择</option>
+
+								<option value="19:00:00">19点</option>
+								<option value="20:00:00">20点</option>
+								<option value="21:00:00">21点</option>
+								<option value="22:00:00">22点</option>
+								<option value="23:00:00">23点</option>
+								<option value="24:00:00">24点</option>
+						</select></td>
+					</tr>
+					<tr>
+
+						<td><span>店铺图片<label style="color: red;"> * </label>
+						</span></td>
+						<td><input type="file" readonly="readonly" id="shopImg"
+							name="shopImg" class="w1" /></td>
+					</tr>
+				</table>
+				<div class="myitem_button">
+					<input class="ok" id="submit1" style="cursor: pointer;"
+						onclick="shopInfo_()" type="button" value="提交审核" /> <input
+						class="ok" id="submit2" style="cursor: pointer;"
+						onclick="shopInfo_()" type="button" value="再次申请" /> <input
+						class="no" style="cursor: pointer;" type="reset" value="取消"
+						onClick="reload()" />
+				</div>
+			</form>
+			<!-- form end   -->
+		</div>
+		<a id="toTop" href="shopMessage.html#top">顶部</a>
+	</div>
+	<!-- end 页面内容 -->
+
+	<!-- start 页面底部 -->
+	<div class="footer"></div>
+	<!-- start 页面底部 -->
+</body>
+</html>

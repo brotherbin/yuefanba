@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>登录 | 约饭吧</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<link rel="stylesheet" href="../css/mylogin.css" />
+<script type="text/javascript" src="../js/login.js"></script>
+</head>
+<body>
+	<div class="content">
+		<!--Logo-->
+		<div class="login-logo">
+			<a href="index.html"> <img src="../img/logo.png" title="约饭吧"
+				class="login-logo-img" /></a> <a class="to_home" href="index.html">首页</a>
+		</div>
+		<hr class="login-hr" />
+		<!-- Start 登录框 -->
+		<div class="login-div-content">
+			<div class="login-saying-pic">
+				<img src="../img/loginico.jpg" />
+			</div>
+			<div class="login-box">
+				<div class="login_box_blank1">
+					<span>账号登录</span>
+				</div>
+				<div class="login_right">
+					<div class="login_right_d1">
+						<div class="login-uname-div">
+							<img id="lbluserimg" src="../img/user_ico.png"
+								class="login_input_userimg"></img> <input type="text"
+								name="username" id="username" placeHolder="请输入用户名"
+								maxlength="12" class="login_input_username"
+								onfocus="inputFocus(this)" onblur="inputBlur(this)"
+								onkeydown="checkName(this)" />
+						</div>
+					</div>
+					<div class="login_right_d3">
+						<div class="login-pwd-div">
+							<img id="lblpwdimg" src="../img/pwd_ico.png"
+								class="login_input_pwdimg"></img> <input type="password"
+								name="password" id="password" placeHolder="请输入密码" maxlength="16"
+								class="login_input_pwd" onfocus="inputFocus(this)"
+								onblur="inputBlur(this)" onkeydown="checkPassword(this)" />
+						</div>
+					</div>
+					<div class="login_right_d5">
+						<input type="button" id="userLogin" value="登  录"
+							onclick="login();" class="login_input_login" />
+					</div>
+					<div class="login_right_d2">
+						<label style="float: left;">忘记密码？</label> <a href="regist.html"
+							style="float: right;">免费注册</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End 登录框 -->
+	</div>
+</body>
+</html>

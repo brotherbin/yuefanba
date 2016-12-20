@@ -1,0 +1,185 @@
+.order-list{
+	padding-bottom: 20px;
+}
+.detail {
+	margin: 20px;
+	width: 940px;
+	position: relative;
+}
+
+.order-dishes {
+	font-size: 14px;
+	display: table-cell;
+	vertical-align: top;
+	border: 1px solid #cccccc;
+	border-right: 0;
+	height: 100%;
+	padding: 5px 0;
+	position: relative;
+	color: #333;
+	width: 500px;
+}
+
+.order-info {
+	display: table-cell;
+	background: #efefef;
+	font-size: 14px;
+	width: 420px;
+	color: #999;
+	padding: 33px 0 60px 20px;
+	position: relative;
+	border: 1px solid #ccc;
+	border-left: 0;
+}
+
+.order-dishes>* {
+	width: 90%;
+	margin: auto;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.order-dishes table tr {
+	line-height: 40px;
+	height: 40px;
+}
+
+.order-dishes table th {
+	width: 100%;
+	font-size: 1.2em;
+	line-height: 45px;
+	height: 45px;
+	border-bottom: 1px solid #eee;
+	text-align: left;
+}
+
+.order-dishes table th a {
+	color: #333;
+}
+
+a {
+	text-decoration: none;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.order-dishes table tr {
+	line-height: 40px;
+	height: 40px;
+}
+.shoper-tel-td{
+	padding-left: 14px;
+}
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+.order-dishes table td:nth-child(2n) {
+	text-align: right;
+	width: 10%;
+}
+
+.order-dishes table td:nth-child(3n) {
+	text-align: right;
+	width: 20%;
+}
+
+.order-dishes .order-price {
+	text-align: right;
+	line-height: normal;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 15px;
+	color: #ff0000;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 8px;
+}
+
+.order-dishes>* {
+	width: 90%;
+	margin: auto;
+}
+
+.order-delivery .tp {
+	color: #999900;
+	margin-bottom: 5px;
+}
+
+.receive-info {
+	color: #000000;
+	font-weight: 100;
+}
+
+.receive-info span {
+	display: block;
+	line-height: 30px;
+}
+
+.detail_title {
+	width：100%;
+	margin-left: 250px;
+	height: 10px;
+	line-height: 15px;
+	vertical-align: middle;
+	padding-left: 10px;
+	border: 0px solid black;
+	font-size: 20px;
+	font-weight: 600;
+	background: #ffffff;
+	position: relative;
+}
+.item_button{
+	margin-top: 20px;
+}
+.item_button input {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	out-line: none;
+	border: 0;
+	border-radius: 2px;
+	cursor: pointer;
+	color: #fff;
+}
+.confirm-btn{
+	background-color: #ff2d4b;
+}
+.confirm-btn:hover{
+	background-color: #ff0d4b;
+}
+.cancle-btn{
+	background-color: #666666;
+	font-size: 14px;
+}
+.cancle-btn:hover{
+	background-color: #555555;
+}
+.myspan {
+	background-color: #ffcc00;
+	display: -moz-inline-box;
+	display: inline-block;
+	width: 150px;
+
+}
+.with-no-order {
+	position: relative;
+	left: 200px;
+	top: 150px;
+	font-size:20px;
+	color:#666666;
+	font-family:"宋体";
+
+}
+
